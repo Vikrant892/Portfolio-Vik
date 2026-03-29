@@ -487,7 +487,7 @@
   background: #33ddff;
   color: #080c10;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.35);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
 }
 
 .work-link-github {
@@ -500,5 +500,5 @@
   color: var(--accentColor);
   border-color: var(--accentColor);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.15);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.15);
 }

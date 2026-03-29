@@ -9,7 +9,7 @@
   width: var(--cWidth);
   max-width: 1920px;
   margin: auto;
-  z-index: 9;
+  z-index: 12;
 }
 
 .what-box {
@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  z-index: 9;
+  z-index: 12;
 }
 
 .what-box h2 {

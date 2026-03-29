@@ -3,8 +3,8 @@ import { RGBELoader } from "three-stdlib";
 import { gsap } from "gsap";
 
 const setLighting = (scene: THREE.Scene) => {
-  // Cyan key light — "lit by screens" cybersecurity aesthetic
-  const directionalLight = new THREE.DirectionalLight(0x00c8f0, 0);
+  // Warm-cool key light — clean, bright, modern
+  const directionalLight = new THREE.DirectionalLight(0xdce8f5, 0);
   directionalLight.intensity = 0;
   directionalLight.position.set(3, 8, 5);
   directionalLight.castShadow = true;
@@ -14,14 +14,14 @@ const setLighting = (scene: THREE.Scene) => {
   directionalLight.shadow.camera.far = 50;
   scene.add(directionalLight);
 
-  // Electric blue fill — deep monitor-screen temperature
-  const pointLight = new THREE.PointLight(0x0052cc, 0, 12, 2);
+  // Soft blue fill — subtle screen-like glow
+  const pointLight = new THREE.PointLight(0x4488cc, 0, 12, 2);
   pointLight.position.set(3, 12, 4);
   pointLight.castShadow = true;
   scene.add(pointLight);
 
-  // Secondary rim — electric violet for silhouette separation
-  const rimLight = new THREE.DirectionalLight(0xcc00ff, 0);
+  // Soft lavender rim — gentle silhouette separation
+  const rimLight = new THREE.DirectionalLight(0xa78bfa, 0);
   rimLight.position.set(-4, 6, -3);
   scene.add(rimLight);
 
@@ -47,17 +47,17 @@ const setLighting = (scene: THREE.Scene) => {
   const ease = "power2.inOut";
   function turnOnLights() {
     gsap.to(scene, {
-      environmentIntensity: 0.28,
+      environmentIntensity: 0.4,
       duration: duration,
       ease: ease,
     });
     gsap.to(directionalLight, {
-      intensity: 2.8,
+      intensity: 3.5,
       duration: duration,
       ease: ease,
     });
     gsap.to(rimLight, {
-      intensity: 1.6,
+      intensity: 2.0,
       duration: duration,
       ease: ease,
     });

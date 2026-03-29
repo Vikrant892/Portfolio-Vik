@@ -3,7 +3,10 @@ import gsap from "gsap";
 
 export function setCharTimeline(
   character: THREE.Object3D<THREE.Object3DEventMap> | null,
-  camera: THREE.PerspectiveCamera
+  camera: THREE.PerspectiveCamera,
+  photoMesh?: THREE.Mesh | null,
+  hiddenMeshes?: THREE.Object3D[] | null,
+  particles?: THREE.Points | null
 ) {
   let intensity: number = 0;
   setInterval(() => {
@@ -71,6 +74,32 @@ export function setCharTimeline(
         .to(".landing-container", { y: "40%", duration: 0.8 }, 0)
         .fromTo(".about-me", { y: "-50%" }, { y: "0%" }, 0);
 
+      // Transition: fade photo cutout ↔ reveal character body (reversible)
+      if (photoMesh && hiddenMeshes) {
+        const photoMat = photoMesh.material as THREE.ShaderMaterial;
+        const transitionProxy = { photoOpacity: 1 };
+        tl2.to(transitionProxy, {
+          photoOpacity: 0,
+          duration: 2,
+          delay: 1,
+          onUpdate: () => {
+            // Use the shader uniform so opacity actually takes effect
+            photoMat.uniforms.uOpacity.value = transitionProxy.photoOpacity;
+            const showPhoto = transitionProxy.photoOpacity > 0.01;
+            photoMesh.visible = showPhoto;
+            // Fade particles with the photo
+            if (particles) {
+              const pMat = particles.material as THREE.ShaderMaterial;
+              pMat.uniforms.uOpacity.value = transitionProxy.photoOpacity;
+              particles.visible = showPhoto;
+            }
+            // Show character body when photo is mostly faded
+            const showBody = transitionProxy.photoOpacity < 0.5;
+            hiddenMeshes.forEach(m => { m.visible = showBody; });
+          },
+        }, 0);
+      }
+
       tl2
         .to(
           camera.position,
@@ -101,12 +130,7 @@ export function setCharTimeline(
           { y: 0, z: 0, delay: 1.5, duration: 3 },
           0
         )
-        .fromTo(
-          ".character-rim",
-          { opacity: 1, scaleX: 1.4 },
-          { opacity: 0, scale: 0, y: "-70%", duration: 5, delay: 2 },
-          0.3
-        );
+;
 
       tl3
         .fromTo(

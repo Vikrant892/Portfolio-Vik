@@ -1,11 +1,11 @@
 .contact-section {
   margin: auto;
-  padding-bottom: 150px;
+  padding-bottom: 60px;
   margin-top: 0;
   position: relative;
   z-index: 1;
   background-color: var(--backgroundColor);
-  min-height: 60vh;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

@@ -63,7 +63,7 @@
 .myworks-card:hover {
   transform: translateY(-10px);
   border-color: var(--accentColor);
-  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.12);
+  box-shadow: 0 20px 40px rgba(56, 189, 248, 0.12);
 }
 
 .myworks-card-number {
@@ -192,7 +192,7 @@
 .myworks-link-live:hover {
   background: #33ddff;
   color: #080c10;
-  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.35);
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.35);
 }
 
 .myworks-link-github {
@@ -204,5 +204,5 @@
 .myworks-link-github:hover {
   color: var(--accentColor);
   border-color: var(--accentColor);
-  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.12);
 }

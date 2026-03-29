@@ -12,7 +12,7 @@ export const config = {
     },
     about: {
         title: "About Me",
-        description: "I'm Vikrant Sharma — a Data Engineer and Cybersecurity Analyst based in Adelaide, Australia. I build data pipelines, threat detection systems, and full-stack applications that solve real-world problems. Currently pursuing a Master's of IT at the University of the Sunshine Coast (UniSC). Previously worked as a Data Engineer designing ETL pipelines on AWS Redshift and Snowflake, and as a Cybersecurity Analyst at AT SecurDI doing SIEM monitoring, OWASP testing, and ISO 27001 compliance. I won the NASA Space Challenge App hackathon and compete in e-sports at a professional level."
+        description: "Data Engineer and Cybersecurity Analyst based in Adelaide. I build threat detection systems, ML pipelines, and secure applications. Master's student at UniSC. NASA hackathon winner. Competitive gamer."
     },
     experiences: [
         {

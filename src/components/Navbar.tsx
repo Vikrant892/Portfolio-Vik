@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
@@ -64,19 +64,51 @@ const Navbar = () => {
       lenis?.destroy();
     };
   }, []);
+  const messages = [
+    "status: online",
+    "open_to_work: true",
+    "loc: Adelaide, AU",
+    "stack: Python | AWS | SIEM",
+    "nasa_hackathon: winner",
+  ];
+  const [text, setText] = useState("");
+  const [msgIdx, setMsgIdx] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const timeoutRef = useRef<number>();
+
+  useEffect(() => {
+    const current = messages[msgIdx];
+    const typeSpeed = isDeleting ? 30 : 60;
+    const pauseAfterType = 2000;
+    const pauseAfterDelete = 300;
+
+    timeoutRef.current = window.setTimeout(() => {
+      if (!isDeleting) {
+        setText(current.slice(0, text.length + 1));
+        if (text.length + 1 === current.length) {
+          setTimeout(() => setIsDeleting(true), pauseAfterType);
+        }
+      } else {
+        setText(current.slice(0, text.length - 1));
+        if (text.length === 0) {
+          setIsDeleting(false);
+          setMsgIdx((msgIdx + 1) % messages.length);
+        }
+      }
+    }, isDeleting && text.length === 0 ? pauseAfterDelete : typeSpeed);
+
+    return () => clearTimeout(timeoutRef.current);
+  }, [text, isDeleting, msgIdx]);
+
   return (
     <>
       <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
-          {config.developer.name}
-        </a>
-        <a
-          href={`mailto:${config.contact.email}`}
-          className="navbar-connect"
-          data-cursor="disable"
-        >
-          {config.contact.email}
-        </a>
+        <div className="navbar-terminal" data-cursor="disable">
+          <span className="terminal-dot"></span>
+          <span className="terminal-prompt">&gt;</span>
+          <span className="terminal-text">{text}</span>
+          <span className="terminal-cursor">_</span>
+        </div>
         <ul>
           <li>
             <a data-href="#about" href="#about">

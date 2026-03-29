@@ -1,3 +1,22 @@
+/* Landing Photo — circular cutout next to name */
+.landing-photo-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 2px solid rgba(167, 139, 250, 0.3);
+  box-shadow: 0 0 25px rgba(167, 139, 250, 0.15), 0 0 50px rgba(56, 189, 248, 0.06);
+  background: #1a1028;
+}
+
+.landing-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+}
+
 /* Mobile Photo - hidden by default, shown only on mobile */
 .mobile-photo {
   display: none;
@@ -57,94 +76,15 @@
     margin-bottom: 5px;
   }
 
-  /* Subtitles Container */
-  .landing-info {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    text-align: center;
-    margin-top: 20px;
-    /* Space between name and subtitles */
-    z-index: 10;
-    background: transparent;
-    padding-bottom: 50px;
-    /* Add bottom padding for scroll space */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    height: auto !important;
-    /* Force auto height */
-    width: 100% !important;
-    order: 3;
-    /* Third: Subtitles */
-  }
-
-  .landing-info h3 {
-    text-align: center;
-    display: none;
-    /* Hide 'An' if not needed, or keep it static */
-  }
-
-  /* Force static positioning to prevent overlaps */
-  .landing-info h2,
-  h2.landing-info-h2,
-  .landing-h2-1,
-  .landing-h2-info {
-    position: static !important;
-    display: block;
-    width: auto;
-    margin: 0 !important;
-    font-size: 20px !important;
-    line-height: 1.5 !important;
-    white-space: normal;
-    text-align: center;
-    height: auto !important;
-    transform: none !important;
-    /* Remove any transforms */
-  }
-
-  /* Specific styling for the distinct parts */
-  .landing-h2-1 {
-    font-size: 24px !important;
-    color: var(--accentColor);
-    font-weight: 700;
-  }
-
-  .landing-h2-info {
-    font-size: 18px !important;
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  .landing-info-h2::after {
-    display: none;
-  }
-
-  /* Show mobile photo */
+  /* Hide mobile photo — text only on mobile */
   .mobile-photo {
-    display: block;
-    position: relative !important;
-    width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
-    z-index: 1;
-    order: 2;
-    /* Second: Photo */
-    /* Add fade mask to bottom */
-    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    pointer-events: none;
-    transform: none !important;
+    display: none !important;
   }
 
-  .mobile-photo img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.35));
+  .landing-photo-wrapper {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 12px auto;
   }
 }
 
@@ -162,20 +102,11 @@
   height: 100%;
   position: relative;
   max-width: var(--cMaxWidth);
+  z-index: 15;
 }
 
 .landing-circle1 {
-  top: 0%;
-  left: 0%;
-  z-index: 15;
-  position: fixed;
-  width: 300px;
-  height: 300px;
-  background-color: #00d4ff;
-  box-shadow: inset -50px 40px 50px rgba(0, 82, 204, 0.7);
-  filter: blur(60px);
-  border-radius: 50%;
-  animation: loadingCircle 5s linear infinite;
+  display: none;
 }
 
 .nav-fade {
@@ -211,8 +142,8 @@
   display: none;
   width: 300px;
   height: 300px;
-  background-color: #00d4ff;
-  box-shadow: inset -50px 40px 50px rgba(0, 82, 204, 0.7);
+  background-color: #38bdf8;
+  box-shadow: inset -50px 40px 50px rgba(56, 130, 200, 0.5);
   filter: blur(50px);
   border-radius: 50%;
   animation: loadingCircle2 5s linear infinite;
@@ -240,19 +171,7 @@
 }
 
 .character-rim {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  z-index: 1;
-  background-color: #00c8f0;
-  transform: translate(-50%, 36%) scaleX(1.4);
-  box-shadow: inset 66px 35px 85px 0px rgba(85, 0, 255, 0.65);
-  filter: blur(50px);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 100%) scale(1.4);
-  opacity: 0;
+  display: none;
 }
 
 .character-model {
@@ -346,79 +265,6 @@
    font-weight: 200; 
 } */
 
-.landing-info {
-  position: absolute;
-  right: 50%;
-  transform: translateX(50%);
-  bottom: 40px;
-  top: inherit;
-  z-index: 9;
-}
-
-.landing-info h3 {
-  font-size: 22px;
-  letter-spacing: 2px;
-  font-weight: 300;
-  color: var(--accentColor);
-  margin: 0;
-}
-
-.landing-info h2 {
-  margin: 0;
-  margin-top: -20px;
-  margin-left: 20px;
-  font-family: "Geist", sans-serif;
-  font-weight: 600;
-  font-size: 28px;
-  line-height: 40px;
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  white-space: nowrap;
-}
-
-.landing-h2-info {
-  white-space: nowrap;
-}
-
-.landing-h2-info-1 {
-  position: absolute;
-  top: 0;
-  white-space: nowrap;
-}
-
-h2.landing-info-h2 {
-  color: #00d4ff;
-  font-size: 36px;
-  width: 150%;
-  margin: 0;
-  font-family: "Geist", sans-serif;
-  font-weight: 600;
-  position: relative;
-  margin-left: -5px;
-}
-
-.landing-h2-2 {
-  position: absolute;
-  top: 0;
-  white-space: nowrap;
-}
-
-.landing-info-h2::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 120%;
-  z-index: 3;
-  background-image: linear-gradient(0deg,
-      var(--backgroundColor) 40%,
-      rgba(0, 0, 0, 0) 110%);
-  top: 0;
-  left: 0;
-}
-
 @media screen and (min-width: 500px) {
   .landing-circle2 {
     display: block;
@@ -426,10 +272,6 @@ h2.landing-info-h2 {
 
   .character-model {
     z-index: 0;
-  }
-
-  .landing-info h3 {
-    font-size: 18px;
   }
 
   .landing-intro h2 {
@@ -440,18 +282,14 @@ h2.landing-info-h2 {
     font-size: 30px;
     line-height: 30px;
   }
-
-  .landing-info h2 {
-    font-size: 35px;
-    line-height: 40px;
-  }
-
-  h2.landing-info-h2 {
-    font-size: 38px;
-  }
 }
 
 @media screen and (min-width: 768px) {
+  .landing-photo-wrapper {
+    width: 140px;
+    height: 140px;
+  }
+
   .character-model {
     height: 80vh;
   }
@@ -463,19 +301,6 @@ h2.landing-info-h2 {
   .landing-intro h1 {
     font-size: 40px;
     line-height: 35px;
-  }
-
-  .landing-info h3 {
-    font-size: 25px;
-  }
-
-  .landing-info h2 {
-    font-size: 45px;
-    line-height: 42px;
-  }
-
-  h2.landing-info-h2 {
-    font-size: 55px;
   }
 }
 
@@ -495,18 +320,9 @@ h2.landing-info-h2 {
   .landing-intro {
     top: 40%;
     left: auto;
-    right: 66%;
+    right: 72%;
     transform: translate(0%, -50%);
-  }
-
-  .landing-info {
-    bottom: auto;
-    top: 51%;
-    z-index: inherit;
-    text-align: left;
-    transform: translate(0%, -50%);
-    right: auto;
-    left: 66%;
+    z-index: 15;
   }
 }
 
@@ -514,22 +330,18 @@ h2.landing-info-h2 {
   .landing-intro {
     top: 40%;
     left: auto;
-    right: 70%;
+    right: 74%;
     transform: translate(0%, -50%);
-  }
-
-  .landing-info {
-    bottom: auto;
-    top: 51%;
-    z-index: inherit;
-    text-align: left;
-    transform: translate(0%, -50%);
-    right: auto;
-    left: 70%;
+    z-index: 15;
   }
 }
 
 @media screen and (min-width: 1600px) {
+  .landing-photo-wrapper {
+    width: 170px;
+    height: 170px;
+  }
+
   .landing-intro h2 {
     font-size: 35px;
   }
@@ -539,16 +351,4 @@ h2.landing-info-h2 {
     line-height: 55px;
   }
 
-  .landing-info h3 {
-    font-size: 35px;
-  }
-
-  .landing-info h2 {
-    font-size: 65px;
-    line-height: 62px;
-  }
-
-  h2.landing-info-h2 {
-    font-size: 75px;
-  }
 }

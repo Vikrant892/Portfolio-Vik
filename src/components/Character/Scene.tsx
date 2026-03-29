@@ -35,7 +35,7 @@ const Scene = () => {
       renderer.setSize(container.width, container.height);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 0.85; // ACES filmic crush — punchy blacks, premium feel
+      renderer.toneMappingExposure = 1.1; // Brighter, cleaner look
       canvasDiv.current.appendChild(renderer.domElement);
 
       const camera = new THREE.PerspectiveCamera(14.5, aspect, 0.1, 1000);
@@ -47,6 +47,7 @@ const Scene = () => {
       let headBone: THREE.Object3D | null = null;
       let screenLight: any | null = null;
       let mixer: THREE.AnimationMixer;
+      let particleMaterial: THREE.ShaderMaterial | null = null;
 
       const clock = new THREE.Clock();
 
@@ -62,8 +63,10 @@ const Scene = () => {
           let character = gltf.scene;
           setChar(character);
           scene.add(character);
-          headBone = character.getObjectByName("spine006") || null;
+          headBone = null; // Character body hidden, photo cutout instead
           screenLight = character.getObjectByName("screenlight") || null;
+          const particles = (gltf as any)._particles;
+          if (particles) particleMaterial = particles.material as THREE.ShaderMaterial;
           progress.loaded().then(() => {
             setTimeout(() => {
               light.turnOnLights();
@@ -109,20 +112,18 @@ const Scene = () => {
       }
       const animate = () => {
         requestAnimationFrame(animate);
-        if (headBone) {
-          handleHeadRotation(
-            headBone,
-            mouse.x,
-            mouse.y,
-            interpolation.x,
-            interpolation.y,
-            THREE.MathUtils.lerp
-          );
+        if (screenLight) {
           light.setPointLight(screenLight);
         }
         const delta = clock.getDelta();
         if (mixer) {
           mixer.update(delta);
+        }
+        if (headBone) {
+          handleHeadRotation(headBone, mouse, interpolation);
+        }
+        if (particleMaterial) {
+          particleMaterial.uniforms.uTime.value = clock.elapsedTime;
         }
         renderer.render(scene, camera);
       };
