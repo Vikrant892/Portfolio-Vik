@@ -3,10 +3,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import Lenis from "lenis";
-<<<<<<< HEAD
-=======
-import { config } from "../config";
->>>>>>> 04c8567fae9de69a714d167e9d522ad5ac054a87
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollTrigger);

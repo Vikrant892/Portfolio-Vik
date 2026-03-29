@@ -120,7 +120,6 @@ const Scene = () => {
           mixer.update(delta);
         }
         if (headBone) {
-<<<<<<< HEAD
           handleHeadRotation(
             headBone,
             mouse.x,
@@ -129,9 +128,6 @@ const Scene = () => {
             interpolation.y,
             THREE.MathUtils.lerp
           );
-=======
-          handleHeadRotation(headBone, mouse, interpolation);
->>>>>>> 04c8567fae9de69a714d167e9d522ad5ac054a87
         }
         if (particleMaterial) {
           particleMaterial.uniforms.uTime.value = clock.elapsedTime;
