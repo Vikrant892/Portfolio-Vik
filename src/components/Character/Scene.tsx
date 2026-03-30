@@ -120,7 +120,7 @@ const Scene = () => {
           mixer.update(delta);
         }
         if (headBone) {
-          handleHeadRotation(headBone, mouse, interpolation);
+          handleHeadRotation(headBone, mouse.x, mouse.y, interpolation.x, interpolation.y, (a, b, t) => a + (b - a) * t);
         }
         if (particleMaterial) {
           particleMaterial.uniforms.uTime.value = clock.elapsedTime;
