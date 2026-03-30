@@ -125,18 +125,18 @@ export const config = {
         },
         {
             id: 5,
-            title: "NASA Space Challenge — AstroTrack",
-            category: "Data Science / Visualization",
-            technologies: "Python, Streamlit, NASA API, Matplotlib",
+            title: "NASA Space Challenge — AstroSonify",
+            category: "Data Science / Sonification",
+            technologies: "Python, Streamlit, NumPy, PIL, Audio Synthesis",
             image: "/images/nasa.png",
             github: "https://github.com/Vikrant892/nasa-space-challenge",
             live: "",
-            description: "NASA Space Apps Challenge winning project — real-time Near-Earth Object tracker with risk assessment, orbital visualization, and impact energy calculations using NASA NeoWs API.",
+            description: "NASA Space Apps Challenge winning project — converts planetary data (longitude, latitude, velocity, temperature) into piano tones. Scan images of planets and moons to hear their data as music.",
             highlights: [
-                "Real-time NEO tracking via NASA NeoWs API",
-                "Torino scale risk assessment and kinetic energy calculations",
-                "Orbital trajectory visualization with Matplotlib",
-                "Streamlit dashboard with interactive date filtering"
+                "Planetary data mapped to piano notes (pitch, duration, volume)",
+                "Image scanner — grid-based brightness-to-music conversion",
+                "NumPy sine wave synthesizer with ADSR envelopes",
+                "Streamlit dashboard with Planet Sonification, Image Scanner, and Composer tabs"
             ]
         },
         {
