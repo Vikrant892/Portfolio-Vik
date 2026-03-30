@@ -1,36 +1,61 @@
-import { useEffect, useRef, useState } from "react";
-import "./styles/ScrollProgress.css";
+import { useEffect, useState } from "react";
+import { lenis } from "./Navbar";
 
 const ScrollProgress = () => {
-  const [progress, setProgress] = useState(0);
-  const rafRef = useRef<number | null>(null);
+  const [pct, setPct] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (rafRef.current) return;
+    let cancelled = false;
+    let rafId = 0;
+    let offLenisScroll: (() => void) | undefined;
 
-      rafRef.current = requestAnimationFrame(() => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        setProgress(scrollPercent);
-        rafRef.current = null;
-      });
+    const update = () => {
+      if (lenis) {
+        const limit = lenis.limit;
+        setPct(limit > 0 ? (lenis.scroll / limit) * 100 : 0);
+        return;
+      }
+      const el = document.documentElement;
+      const max = el.scrollHeight - el.clientHeight;
+      setPct(max > 0 ? (el.scrollTop / max) * 100 : 0);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    const tryAttachLenis = () => {
+      if (cancelled) return;
+      if (lenis) {
+        update();
+        offLenisScroll = lenis.on("scroll", update);
+        return;
+      }
+      rafId = requestAnimationFrame(tryAttachLenis);
+    };
+
+    tryAttachLenis();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      cancelled = true;
+      cancelAnimationFrame(rafId);
+      offLenisScroll?.();
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
     };
   }, []);
 
   return (
     <div
-      className="scroll-progress"
+      aria-hidden
+      className="scroll-progress-bar"
       style={{
-        width: `${progress}%`,
-        opacity: progress > 0 ? 1 : 0,
+        position: "fixed",
+        top: 0,
+        left: 0,
+        height: 2,
+        width: `${pct}%`,
+        zIndex: 9999,
+        background: "var(--accentColor)",
+        pointerEvents: "none",
       }}
     />
   );

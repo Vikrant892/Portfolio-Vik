@@ -120,7 +120,14 @@ const Scene = () => {
           mixer.update(delta);
         }
         if (headBone) {
-          handleHeadRotation(headBone, mouse.x, mouse.y, interpolation.x, interpolation.y, (a, b, t) => a + (b - a) * t);
+          handleHeadRotation(
+            headBone,
+            mouse.x,
+            mouse.y,
+            interpolation.x,
+            interpolation.y,
+            THREE.MathUtils.lerp
+          );
         }
         if (particleMaterial) {
           particleMaterial.uniforms.uTime.value = clock.elapsedTime;
