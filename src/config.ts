@@ -66,7 +66,7 @@ export const config = {
             technologies: "PHP, Python, ML, MySQL, REST API",
             image: "/images/phishing.png",
             github: "https://github.com/Vikrant892/Phishing-detection-platform",
-            live: "",
+            live: "https://phishing-detection.pages.dev",
             description: "Advanced platform that detects phishing URLs and emails using ML classifiers, heuristic analysis, and real-time threat intelligence feeds.",
             highlights: [
                 "ML-based URL classifier with 94%+ detection accuracy",
@@ -82,7 +82,7 @@ export const config = {
             technologies: "Python, Scikit-learn, Pandas, Streamlit",
             image: "/images/ids.png",
             github: "https://github.com/Vikrant892/ids-project",
-            live: "",
+            live: "https://ids-project-548.pages.dev",
             description: "Network intrusion detection system using ML to classify traffic as benign or malicious. Analyses 40+ packet flow features for real-time anomaly detection.",
             highlights: [
                 "Random Forest classifier on network traffic features",
@@ -98,7 +98,7 @@ export const config = {
             technologies: "Python, Scikit-learn, XGBoost, Pandas, SMOTE",
             image: "/images/fraud-ml.png",
             github: "https://github.com/Vikrant892/credit-card-fraud-detection",
-            live: "",
+            live: "https://credit-card-fraud-detection-2y5.pages.dev",
             description: "ML pipeline for real-time fraud detection on 284,807 transactions. Handles severe class imbalance and optimises precision-recall to minimise false positives.",
             highlights: [
                 "Logistic Regression, Random Forest & XGBoost ensemble",
@@ -114,7 +114,7 @@ export const config = {
             technologies: "Python, GitHub Actions, NVD API, HIBP API",
             image: "/images/security-toolkit.png",
             github: "https://github.com/Vikrant892/security-toolkit",
-            live: "https://github.com/Vikrant892/security-toolkit",
+            live: "https://security-toolkit.pages.dev",
             description: "Auto-growing public toolkit of 15+ real-world cybersecurity and data tools, with a new tool committed daily via GitHub Actions — CVE tracker, port scanner, log analyser, and more.",
             highlights: [
                 "15+ standalone Python tools, zero external dependencies",
@@ -130,7 +130,7 @@ export const config = {
             technologies: "Python, Streamlit, NumPy, PIL, Audio Synthesis",
             image: "/images/nasa.png",
             github: "https://github.com/Vikrant892/nasa-space-challenge",
-            live: "",
+            live: "https://nasa-space-challenge-w8f.pages.dev",
             description: "NASA Space Apps Challenge winning project — converts planetary data (longitude, latitude, velocity, temperature) into piano tones. Scan images of planets and moons to hear their data as music.",
             highlights: [
                 "Planetary data mapped to piano notes (pitch, duration, volume)",
@@ -146,7 +146,7 @@ export const config = {
             technologies: "Python, Snowflake, PostgreSQL, Pandas, SQL",
             image: "/images/etl.png",
             github: "https://github.com/Vikrant892/snowflake-etl-pipeline",
-            live: "",
+            live: "https://snowflake-etl-pipeline.pages.dev",
             description: "Production-grade ETL pipeline extracting from CSV and PostgreSQL, transforming with SCD Type 2 logic, and loading into a Snowflake star schema via staged bulk loads.",
             highlights: [
                 "Star schema with dimension and fact tables",
@@ -162,7 +162,7 @@ export const config = {
             technologies: "Python, Flask, Chart.js, Regex",
             image: "/images/log-analyzer.png",
             github: "https://github.com/Vikrant892/log-analyzer-dashboard",
-            live: "",
+            live: "https://log-analyzer-dashboard.pages.dev",
             description: "Lightweight SIEM dashboard that parses syslog, auth.log, and web server logs to detect brute force attacks, port scans, and suspicious activity with real-time visualizations.",
             highlights: [
                 "Multi-format log parsing (syslog, auth.log, Apache/Nginx)",
@@ -178,7 +178,7 @@ export const config = {
             technologies: "Python, BeautifulSoup, Requests, Jinja2",
             image: "/images/vuln-scanner.png",
             github: "https://github.com/Vikrant892/web-vuln-scanner",
-            live: "",
+            live: "https://web-vuln-scanner.pages.dev",
             description: "OWASP-focused web vulnerability scanner with automated XSS and SQL injection detection, security header analysis, SSL checks, and directory enumeration with HTML reporting.",
             highlights: [
                 "Reflected XSS and SQL injection payload testing",
@@ -194,7 +194,7 @@ export const config = {
             technologies: "Python, OpenCV, MediaPipe, PyAutoGUI",
             image: "/images/gesture-control.png",
             github: "https://github.com/Vikrant892/gesture-youtube-controller",
-            live: "",
+            live: "https://gesture-youtube-controller.pages.dev",
             description: "Hands-free YouTube control using real-time hand gesture recognition. Detects 21 hand landmarks per frame to map gestures to playback controls, built for accessibility.",
             highlights: [
                 "21-point hand landmark detection via MediaPipe",
@@ -210,7 +210,7 @@ export const config = {
             technologies: "Python, FastAPI, HIBP API, Docker",
             image: "/images/password-api.png",
             github: "https://github.com/Vikrant892/password-strength-api",
-            live: "",
+            live: "https://password-strength-api.pages.dev",
             description: "FastAPI microservice that analyses password strength using entropy scoring, pattern detection, and Have I Been Pwned breach checking via k-anonymity. Includes a secure password generator.",
             highlights: [
                 "Entropy-based scoring with crack time estimates",
@@ -226,7 +226,7 @@ export const config = {
             technologies: "Python, LLM APIs, FFmpeg, YouTube Data API",
             image: "/images/autotuber.png",
             github: "https://github.com/Vikrant892/autotuber",
-            live: "",
+            live: "https://autotuber-et9.pages.dev",
             description: "End-to-end automated YouTube content pipeline — generates AI scripts, creates voiceovers, renders videos with FFmpeg, and schedules uploads via YouTube Data API v3.",
             highlights: [
                 "AI-generated scripts using LLM APIs",
@@ -242,7 +242,7 @@ export const config = {
             technologies: "Java, JSP, Servlet, JDBC, MySQL, Bootstrap",
             image: "/images/salary-slip.png",
             github: "https://github.com/Vikrant892/salary-slip-generator",
-            live: "",
+            live: "https://salary-slip-generator.pages.dev",
             description: "Enterprise HR web app for generating and downloading PDF salary slips. Role-based access separates admin and employee views, backed by a MySQL employee database.",
             highlights: [
                 "One-click PDF generation and download",
