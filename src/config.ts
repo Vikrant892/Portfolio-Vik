@@ -65,7 +65,7 @@ export const config = {
             category: "Cybersecurity",
             technologies: "PHP, Python, ML, MySQL, REST API",
             image: "/images/phishing.png",
-            github: "https://github.com/Vikrant892",
+            github: "https://github.com/Vikrant892/Phishing-detection-platform",
             live: "",
             description: "Advanced platform that detects phishing URLs and emails using ML classifiers, heuristic analysis, and real-time threat intelligence feeds.",
             highlights: [
@@ -79,9 +79,9 @@ export const config = {
             id: 2,
             title: "Intrusion Detection System",
             category: "Cybersecurity / ML",
-            technologies: "Python, Scikit-learn, Pandas, NetworkX",
+            technologies: "Python, Scikit-learn, Pandas, Streamlit",
             image: "/images/ids.png",
-            github: "https://github.com/Vikrant892",
+            github: "https://github.com/Vikrant892/ids-project",
             live: "",
             description: "Network intrusion detection system using ML to classify traffic as benign or malicious. Analyses 40+ packet flow features for real-time anomaly detection.",
             highlights: [
@@ -95,13 +95,13 @@ export const config = {
             id: 3,
             title: "Credit Card Fraud Detection",
             category: "ML / Data Science",
-            technologies: "Python, Scikit-learn, Pandas, NumPy, PCA",
+            technologies: "Python, Scikit-learn, XGBoost, Pandas, SMOTE",
             image: "/images/fraud-ml.png",
-            github: "https://github.com/Vikrant892",
+            github: "https://github.com/Vikrant892/credit-card-fraud-detection",
             live: "",
             description: "ML pipeline for real-time fraud detection on 284,807 transactions. Handles severe class imbalance and optimises precision-recall to minimise false positives.",
             highlights: [
-                "Logistic Regression & Random Forest with PCA",
+                "Logistic Regression, Random Forest & XGBoost ensemble",
                 "SMOTE oversampling on 99.8% imbalanced dataset",
                 "Precision-recall threshold tuning for production use",
                 "F1 score of 0.87 on held-out test set"
@@ -125,43 +125,123 @@ export const config = {
         },
         {
             id: 5,
+            title: "NASA Space Challenge — AstroTrack",
+            category: "Data Science / Visualization",
+            technologies: "Python, Streamlit, NASA API, Matplotlib",
+            image: "/images/nasa.png",
+            github: "https://github.com/Vikrant892/nasa-space-challenge",
+            live: "",
+            description: "NASA Space Apps Challenge winning project — real-time Near-Earth Object tracker with risk assessment, orbital visualization, and impact energy calculations using NASA NeoWs API.",
+            highlights: [
+                "Real-time NEO tracking via NASA NeoWs API",
+                "Torino scale risk assessment and kinetic energy calculations",
+                "Orbital trajectory visualization with Matplotlib",
+                "Streamlit dashboard with interactive date filtering"
+            ]
+        },
+        {
+            id: 6,
+            title: "Snowflake ETL Pipeline",
+            category: "Data Engineering",
+            technologies: "Python, Snowflake, PostgreSQL, Pandas, SQL",
+            image: "/images/etl.png",
+            github: "https://github.com/Vikrant892/snowflake-etl-pipeline",
+            live: "",
+            description: "Production-grade ETL pipeline extracting from CSV and PostgreSQL, transforming with SCD Type 2 logic, and loading into a Snowflake star schema via staged bulk loads.",
+            highlights: [
+                "Star schema with dimension and fact tables",
+                "SCD Type 2 slowly changing dimensions",
+                "Snowflake PUT/COPY INTO for bulk loading",
+                "Data quality checks and pipeline orchestration"
+            ]
+        },
+        {
+            id: 7,
+            title: "Log Analyzer Dashboard",
+            category: "Cybersecurity / SIEM",
+            technologies: "Python, Flask, Chart.js, Regex",
+            image: "/images/log-analyzer.png",
+            github: "https://github.com/Vikrant892/log-analyzer-dashboard",
+            live: "",
+            description: "Lightweight SIEM dashboard that parses syslog, auth.log, and web server logs to detect brute force attacks, port scans, and suspicious activity with real-time visualizations.",
+            highlights: [
+                "Multi-format log parsing (syslog, auth.log, Apache/Nginx)",
+                "Brute force and port scan detection rules",
+                "Chart.js visualizations with dark cyber theme",
+                "MITRE ATT&CK mapped threat detection"
+            ]
+        },
+        {
+            id: 8,
+            title: "Web Vulnerability Scanner",
+            category: "Cybersecurity",
+            technologies: "Python, BeautifulSoup, Requests, Jinja2",
+            image: "/images/vuln-scanner.png",
+            github: "https://github.com/Vikrant892/web-vuln-scanner",
+            live: "",
+            description: "OWASP-focused web vulnerability scanner with automated XSS and SQL injection detection, security header analysis, SSL checks, and directory enumeration with HTML reporting.",
+            highlights: [
+                "Reflected XSS and SQL injection payload testing",
+                "Security header grading (A-F) per OWASP guidelines",
+                "SSL/TLS configuration and certificate analysis",
+                "HTML report generation grouped by severity"
+            ]
+        },
+        {
+            id: 9,
             title: "YouTube Hand Gesture Control",
             category: "Computer Vision",
-            technologies: "Python, OpenCV, MediaPipe, TensorFlow, PyAutoGUI",
+            technologies: "Python, OpenCV, MediaPipe, PyAutoGUI",
             image: "/images/gesture-control.png",
-            github: "https://github.com/Vikrant892",
+            github: "https://github.com/Vikrant892/gesture-youtube-controller",
             live: "",
             description: "Hands-free YouTube control using real-time hand gesture recognition. Detects 21 hand landmarks per frame to map gestures to playback controls, built for accessibility.",
             highlights: [
                 "21-point hand landmark detection via MediaPipe",
                 "Gesture-to-action: play, pause, seek, volume control",
-                "60fps real-time processing via PyAutoGUI",
+                "60fps real-time processing with cooldown logic",
                 "Accessibility-first design for motor-impaired users"
             ]
         },
         {
-            id: 6,
+            id: 10,
+            title: "Password Strength API",
+            category: "Security / Full Stack",
+            technologies: "Python, FastAPI, HIBP API, Docker",
+            image: "/images/password-api.png",
+            github: "https://github.com/Vikrant892/password-strength-api",
+            live: "",
+            description: "FastAPI microservice that analyses password strength using entropy scoring, pattern detection, and Have I Been Pwned breach checking via k-anonymity. Includes a secure password generator.",
+            highlights: [
+                "Entropy-based scoring with crack time estimates",
+                "HIBP breach detection using k-anonymity (SHA-1 prefix)",
+                "Secure password generator with configurable rules",
+                "Docker-ready with interactive demo frontend"
+            ]
+        },
+        {
+            id: 11,
             title: "AutoTuber",
             category: "Automation / AI",
-            technologies: "Python, OpenAI API, FFmpeg, YouTube Data API",
+            technologies: "Python, LLM APIs, FFmpeg, YouTube Data API",
             image: "/images/autotuber.png",
-            github: "https://github.com/Vikrant892",
+            github: "https://github.com/Vikrant892/autotuber",
             live: "",
             description: "End-to-end automated YouTube content pipeline — generates AI scripts, creates voiceovers, renders videos with FFmpeg, and schedules uploads via YouTube Data API v3.",
             highlights: [
                 "AI-generated scripts using LLM APIs",
                 "Automated TTS voiceover and video rendering via FFmpeg",
                 "YouTube Data API v3 for scheduling and upload",
-                "Configurable niches, templates, and posting schedules"
+                "Dashboard for pipeline monitoring and job tracking"
             ]
         },
         {
-            id: 7,
+            id: 12,
             title: "Salary Slip Generator",
             category: "Full Stack",
             technologies: "Java, JSP, Servlet, JDBC, MySQL, Bootstrap",
             image: "/images/salary-slip.png",
-            github: "https://github.com/Vikrant892",
+            github: "https://github.com/Vikrant892/salary-slip-generator",
             live: "",
             description: "Enterprise HR web app for generating and downloading PDF salary slips. Role-based access separates admin and employee views, backed by a MySQL employee database.",
             highlights: [
@@ -172,18 +252,18 @@ export const config = {
             ]
         },
         {
-            id: 8,
+            id: 13,
             title: "Portfolio — vikrant69g.com",
             category: "Full Stack / 3D",
             technologies: "TypeScript, React, Three.js, GSAP, Vite",
             image: "/images/portfolio.png",
             github: "https://github.com/Vikrant892/Portfolio-Vik",
             live: "https://vikrant69g.com",
-            description: "This portfolio — interactive 3D developer site with a custom animated character, real-time mouse tracking, and scroll-driven animations. Cyberpunk-inspired cybersecurity aesthetic.",
+            description: "This portfolio — interactive 3D developer site with a custom animated character, orbital particle system, and scroll-driven animations. Cyberpunk-inspired cybersecurity aesthetic.",
             highlights: [
                 "Custom 3D character with real-time head-tracking via Three.js",
                 "GSAP scroll-pinned horizontal work showcase",
-                "ACES filmic tone mapping and HDR environment lighting",
+                "3D orbital particle system on landing page",
                 "Deployed on Cloudflare Pages with CI/CD"
             ]
         }
