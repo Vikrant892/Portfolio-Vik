@@ -31,11 +31,13 @@
   .landing-section,
   .landing-container {
     height: auto !important;
-    min-height: 100vh;
+    min-height: auto;
+    width: 100% !important;
     max-width: 100vw;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 0 15px;
     padding-bottom: 40px;
   }
@@ -76,9 +78,24 @@
     margin-bottom: 5px;
   }
 
-  /* Hide mobile photo — text only on mobile */
+  /* Show profile photo on mobile since 3D model is hidden */
   .mobile-photo {
-    display: none !important;
+    display: flex !important;
+    justify-content: center;
+    order: 2;
+    margin: 10px auto 20px auto;
+    z-index: 10;
+  }
+
+  .mobile-photo img {
+    width: min(220px, 55vw);
+    height: min(220px, 55vw);
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 15%;
+    border: 2px solid rgba(167, 139, 250, 0.35);
+    box-shadow: 0 0 30px rgba(167, 139, 250, 0.15), 0 0 60px rgba(56, 189, 248, 0.08);
+    background: #1a1028;
   }
 
   .landing-photo-wrapper {
