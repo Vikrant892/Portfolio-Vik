@@ -16,10 +16,7 @@ interface LoadingType {
 export const LoadingContext = createContext<LoadingType | null>(null);
 
 export const LoadingProvider = ({ children }: PropsWithChildren) => {
-  const [isLoading, setIsLoading] = useState(() => {
-    if (window.innerWidth <= 768) return false;
-    return true;
-  });
+  const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(0);
 
   const value = {
@@ -28,15 +25,13 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
     setLoading,
   };
   useEffect(() => {
-    if (window.innerWidth <= 768) {
-      import("../components/utils/initialFX").then((module) => {
-        if (module.initialFX) {
-          setTimeout(() => {
-            module.initialFX();
-          }, 100);
-        }
-      });
-    }
+    import("../components/utils/initialFX").then((module) => {
+      if (module.initialFX) {
+        setTimeout(() => {
+          module.initialFX();
+        }, 100);
+      }
+    });
   }, []);
 
   useEffect(() => {}, [loading]);
