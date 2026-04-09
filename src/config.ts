@@ -253,6 +253,22 @@ export const config = {
         },
         {
             id: 13,
+            title: "ThreatLens",
+            category: "Cybersecurity / Threat Intel",
+            technologies: "Python, FastAPI, NVD API, MITRE ATT&CK, Pydantic",
+            image: "/images/threat-lens.png",
+            github: "https://github.com/Vikrant892/threat-lens",
+            live: "https://threat-lens.pages.dev",
+            description: "Real-time threat intelligence platform that aggregates CVEs from NVD, performs IP reputation analysis, maps threats to MITRE ATT&CK techniques, and automates threat scoring to combat SOC alert fatigue.",
+            highlights: [
+                "NVD CVE API v2.0 integration with CVSS v3.1 scoring",
+                "IP reputation analysis with geolocation and abuse detection",
+                "MITRE ATT&CK technique mapping and tactic grouping",
+                "Composite threat scoring engine with multi-factor prioritization"
+            ]
+        },
+        {
+            id: 14,
             title: "Portfolio — vikrant69g.com",
             category: "Full Stack / 3D",
             technologies: "TypeScript, React, Three.js, GSAP, Vite",
