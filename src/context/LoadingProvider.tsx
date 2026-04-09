@@ -25,6 +25,22 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
     setLoading,
   };
   useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    let intervalId: ReturnType<typeof setInterval> | undefined;
+
+    if (isMobile) {
+      // On mobile, no 3D model loads — drive progress to 100 ourselves
+      let p = 0;
+      intervalId = setInterval(() => {
+        p = Math.min(100, p + 5);
+        setLoading(p);
+        if (p >= 100 && intervalId) {
+          clearInterval(intervalId);
+          intervalId = undefined;
+        }
+      }, 50);
+    }
+
     import("../components/utils/initialFX").then((module) => {
       if (module.initialFX) {
         setTimeout(() => {
@@ -32,9 +48,19 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
         }, 100);
       }
     });
+
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
   }, []);
 
-  useEffect(() => {}, [loading]);
+  // Safety: force dismiss loading after 10s max (prevents permanent stuck state)
+  useEffect(() => {
+    const safetyTimeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 10000);
+    return () => clearTimeout(safetyTimeout);
+  }, []);
 
   return (
     <LoadingContext.Provider value={value as LoadingType}>

@@ -85,9 +85,12 @@
     margin-bottom: 5px;
   }
 
-  /* Fallback photo hidden when 3D model renders */
+  /* Profile photo shown on mobile as 3D model fallback */
   .mobile-photo {
-    display: none !important;
+    display: flex !important;
+    justify-content: center;
+    margin: 10px auto 20px auto;
+    order: 2;
   }
 
   .mobile-photo img {

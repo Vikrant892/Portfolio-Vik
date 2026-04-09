@@ -20,17 +20,29 @@ const Loading = ({ percent }: { percent: number }) => {
   }
 
   useEffect(() => {
-    import("./utils/initialFX").then((module) => {
-      if (isLoaded) {
+    if (!isLoaded) return;
+
+    import("./utils/initialFX")
+      .then((module) => {
         setClicked(true);
         setTimeout(() => {
-          if (module.initialFX) {
-            module.initialFX();
+          try {
+            if (module.initialFX) {
+              module.initialFX();
+            }
+          } catch (e) {
+            console.warn("initialFX error:", e);
           }
           setIsLoading(false);
         }, 900);
-      }
-    });
+      })
+      .catch(() => {
+        // Module import failed — still dismiss loading
+        setClicked(true);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 900);
+      });
   }, [isLoaded]);
 
   function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
