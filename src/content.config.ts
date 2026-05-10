@@ -13,6 +13,7 @@ const certifications = defineCollection({
       verifyUrl: z.string().url().optional(),
       imageUrl: z.string().url().optional(),
       logo: z.object({ src: image(), alt: z.string() }).optional(),
+      certImage: image().optional(),
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),
     }),
