@@ -16,6 +16,7 @@ const certifications = defineCollection({
       certImage: image().optional(),
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),
+      order: z.number().int().default(100),
     }),
 });
 

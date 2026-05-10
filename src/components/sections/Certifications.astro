@@ -3,7 +3,9 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 
 const certs = (await getCollection('certifications')).sort((a, b) => {
-  if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
+  // Explicit order field drives the sequence. Falls back to most-recent
+  // issuedAt when two entries share the same order value.
+  if (a.data.order !== b.data.order) return a.data.order - b.data.order;
   return b.data.issuedAt.getTime() - a.data.issuedAt.getTime();
 });
 

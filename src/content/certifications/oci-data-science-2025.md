@@ -6,6 +6,7 @@ verifyUrl: 'https://www.linkedin.com/posts/vik892_oracle-cloud-infrastructure-20
 certImage: '../../assets/certs/oracle.png'
 tags: ['cloud', 'data-science', 'oracle']
 featured: true
+order: 1
 ---
 
 OCI Data Science Professional — covers building, training, and deploying ML models on Oracle Cloud Infrastructure: notebook sessions, model catalogue, deployments, MLOps pipelines, and Data Science SDKs.

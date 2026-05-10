@@ -5,6 +5,7 @@ issuedAt: 2024-01-20
 certImage: '../../assets/certs/tot-05.png'
 tags: ['hackathon', 'event']
 featured: false
+order: 8
 ---
 
 Participation in **IGNITE 2024** — annual student-led tech event hosted by CMPICA, CHARUSAT. Theme: *Skills & Subspace Influence*.
