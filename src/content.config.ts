@@ -26,7 +26,7 @@ const awards = defineCollection({
       title: z.string().min(1).max(120),
       organisation: z.string().min(1).max(120),
       year: z.coerce.number().int(),
-      tier: z.enum(['Winner', 'Runner-up', 'Finalist', 'Honourable Mention', 'Other']).optional(),
+      tier: z.enum(['Winner', 'Runner-up', 'Podium', 'Finalist', 'Honourable Mention', 'Other']).optional(),
       url: z.string().url().optional(),
       imageUrl: z.string().url().optional(),
       logo: z.object({ src: image(), alt: z.string() }).optional(),
