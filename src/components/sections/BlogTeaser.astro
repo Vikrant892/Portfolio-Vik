@@ -19,7 +19,12 @@ try {
     posts = itemMatches.slice(0, 3).map((item) => {
       const pick = (tag: string) => {
         const m = item.match(new RegExp(`<${tag}>([\\s\\S]*?)<\\/${tag}>`));
-        return m ? m[1].replace(/<!\[CDATA\[|\]\]>/g, '').trim() : '';
+        return m
+          ? m[1]
+              .replace(/<!\[CDATA\[|\]\]>/g, '')
+              .replace(/\s*[—–]\s*/g, ', ')
+              .trim()
+          : '';
       };
       return {
         title: pick('title'),
