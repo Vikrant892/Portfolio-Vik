@@ -1,0 +1,50 @@
+---
+const stats = [
+  { value: '12+', label: 'Projects shipped', sub: 'across cyber, ML, and data eng' },
+  { value: '7', label: 'Live demos running', sub: 'Hugging Face Spaces, no mockups' },
+  { value: '3', label: 'Years of experience', sub: 'industry + research combined' },
+  { value: 'F1 0.95', label: 'Best model score', sub: 'CICIDS2017 hybrid IDS ensemble' },
+];
+---
+
+<section
+  id="stats"
+  class="border-b border-[var(--color-border-subtle)] bg-[var(--color-ink)] py-24 text-[var(--color-ink-on-dark)] sm:py-32"
+  aria-labelledby="stats-heading"
+>
+  <div class="mx-auto max-w-[1400px] px-6 sm:px-12">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-6">
+        <p class="ds-eyebrow mb-4" style="color: var(--color-amber)">TURNING MY VISION INTO REALITY</p>
+        <h2
+          id="stats-heading"
+          class="display-script text-5xl text-[var(--color-ink-on-dark)] sm:text-7xl"
+        >
+          Numbers,<br />verified<span class="text-[var(--color-amber)]">.</span>
+        </h2>
+        <p class="mt-8 max-w-md text-[var(--color-ink-on-dark-muted)]">
+          The current portfolio's old stats said things like "847,293 packets analysed" — that
+          was a static mockup. These numbers are real, traceable to commits and deploys.
+        </p>
+      </div>
+
+      <dl class="grid grid-cols-2 gap-12 lg:col-span-6">
+        {
+          stats.map((s) => (
+            <div class="border-l border-[var(--color-amber)] pl-6">
+              <dt class="display-mark text-5xl text-[var(--color-amber)] sm:text-6xl">
+                {s.value}
+              </dt>
+              <dd class="mt-4 text-base font-medium text-[var(--color-ink-on-dark)]">
+                {s.label}
+              </dd>
+              <dd class="mono mt-1 text-xs text-[var(--color-ink-on-dark-muted)]">
+                {s.sub}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>

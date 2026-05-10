@@ -1,0 +1,180 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/fraunces';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+
+/* ──────────────────────────────────────────────────────────────────────────
+   "MADISON × DECODED" — design tokens
+   Editorial typography on a warm cream surface with sunset-amber accents
+   and a restrained electric-cyan as the cyber/tech nod.
+   - Heavy serif italics for "Hey, there"-style displays.
+   - Heavy sans for the "I AM VIKRANT" mark.
+   ────────────────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Surfaces — warm cream, not pure white */
+  --color-bg: #f5f1e8;
+  --color-bg-elevated: #fbf7ee;
+  --color-bg-subtle: #ede7d7;
+  --color-bg-inset: #e2dac4;
+
+  /* Dark surface for inverted product/detail blocks */
+  --color-bg-dark: #0a0a0a;
+  --color-bg-dark-elevated: #131313;
+
+  /* Ink — deep black on cream, off-white on dark */
+  --color-ink: #0a0a0a;
+  --color-ink-muted: #4a4a48;
+  --color-ink-dim: #807d76;
+  --color-ink-faint: #a8a49a;
+  --color-ink-on-dark: #f5f1e8;
+  --color-ink-on-dark-muted: #b8b3a8;
+
+  /* Warm accent — sunset amber, the dominant accent */
+  --color-amber: #e8a05a;
+  --color-amber-soft: #f4c89a;
+  --color-amber-glow: #e8a05a26;
+
+  /* Cool accent — electric cyan, used sparingly (cyber/tech nod) */
+  --color-cyan: #00b8b8;
+  --color-cyan-soft: #00b8b833;
+
+  /* Borders */
+  --color-border: #d4cdb8;
+  --color-border-subtle: #e0d9c4;
+  --color-border-strong: #b8b09a;
+
+  /* Type ramp */
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, monospace;
+
+  /* Radii */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 0 0 var(--color-border-subtle), 0 24px 48px -24px rgba(10, 10, 10, 0.18);
+  --shadow-pill: 0 1px 0 0 rgba(255, 255, 255, 0.6) inset, 0 4px 12px -4px rgba(10, 10, 10, 0.12);
+
+  /* Easings — slow-in, sharp-out for cinema feel */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    min-height: 100svh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-amber);
+    color: var(--color-ink);
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -10000px;
+    top: 1rem;
+    z-index: 50;
+  }
+  .skip-link:focus {
+    left: 1rem;
+    background: var(--color-bg-elevated);
+    color: var(--color-ink);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Display — heavy sans, the "I AM VIKRANT" mark */
+  .display-mark {
+    font-family: var(--font-sans);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+    text-transform: uppercase;
+  }
+
+  /* Display — Fraunces italic, the "Hey, there" header */
+  .display-script {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+    font-feature-settings: 'liga' off;
+  }
+
+  .ds-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-ink-dim);
+  }
+
+  .ds-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-pill);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .ds-pill::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-amber);
+    box-shadow: 0 0 8px 2px var(--color-amber-glow);
+  }
+}

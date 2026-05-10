@@ -1,0 +1,15 @@
+dist/
+.astro/
+node_modules/
+.env
+.env.local
+.env.*.local
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.log
+.cache/
+*.tsbuildinfo

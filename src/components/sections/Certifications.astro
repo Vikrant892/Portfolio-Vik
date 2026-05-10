@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+
+const certs = (await getCollection('certifications')).sort(
+  (a, b) => b.data.issuedAt.getTime() - a.data.issuedAt.getTime(),
+);
+
+const monthYear = (d: Date) =>
+  d.toLocaleDateString('en-AU', { month: 'short', year: 'numeric' });
+---
+
+<section
+  id="certifications"
+  class="border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] py-24 sm:py-32"
+  aria-labelledby="certs-heading"
+>
+  <div class="mx-auto max-w-[1400px] px-6 sm:px-12">
+    <div class="mb-16">
+      <p class="ds-eyebrow mb-4">VERIFIED CERTIFICATIONS</p>
+      <h2
+        id="certs-heading"
+        class="display-script text-5xl text-[var(--color-ink)] sm:text-7xl"
+      >
+        Receipts<span class="text-[var(--color-amber)]">.</span>
+      </h2>
+    </div>
+
+    {certs.length === 0 ? (
+      <p class="mono text-sm text-[var(--color-ink-muted)]">
+        Certifications loading — content collection empty.
+      </p>
+    ) : (
+      <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {certs.map((c) => (
+          <li>
+            <article class="group flex h-full flex-col rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-6 transition-transform duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1">
+              <p class="mono text-xs uppercase tracking-widest text-[var(--color-amber)]">
+                {c.data.issuer}
+              </p>
+              <h3 class="display-script mt-3 text-2xl text-[var(--color-ink)]">
+                {c.data.title}
+              </h3>
+              <dl class="mono mt-4 grid grid-cols-2 gap-3 text-xs">
+                <div>
+                  <dt class="ds-eyebrow">Issued</dt>
+                  <dd class="mt-0.5 text-[var(--color-ink)]">
+                    {monthYear(c.data.issuedAt)}
+                  </dd>
+                </div>
+                {c.data.credentialId && (
+                  <div>
+                    <dt class="ds-eyebrow">Credential</dt>
+                    <dd class="mt-0.5 truncate text-[var(--color-ink)]">{c.data.credentialId}</dd>
+                  </div>
+                )}
+              </dl>
+              {c.data.tags.length > 0 && (
+                <ul class="mono mt-5 flex flex-wrap gap-1.5">
+                  {c.data.tags.map((t) => (
+                    <li class="rounded-full border border-[var(--color-border)] px-2 py-0.5 text-[10px] text-[var(--color-ink-dim)]">
+                      #{t}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {c.data.verifyUrl && (
+                <a
+                  href={c.data.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mono mt-auto pt-6 text-xs text-[var(--color-ink)] underline-offset-4 hover:text-[var(--color-amber)] hover:underline"
+                >
+                  Verify ↗
+                </a>
+              )}
+            </article>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</section>
