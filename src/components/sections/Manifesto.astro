@@ -1,0 +1,88 @@
+---
+const principles = [
+  {
+    n: '01',
+    title: 'Ship over polish',
+    body:
+      'Half a system in production teaches more than a finished one in a notebook. Every project on this site has a real URL.',
+  },
+  {
+    n: '02',
+    title: 'Metrics over claims',
+    body:
+      'F1 0.95, 99.8% imbalanced data, 284k transactions. If a number is on this page, it is reproducible from a commit hash.',
+  },
+  {
+    n: '03',
+    title: 'Public over private',
+    body:
+      'Open repos, post-mortems on the blog, certifications anyone can verify. Hiding the working out hides the work.',
+  },
+  {
+    n: '04',
+    title: 'Boring tools, sharp use',
+    body:
+      'Python, Postgres, Docker, Linux. The accumulated tax of chasing the new framework usually outweighs the lift.',
+  },
+];
+---
+
+<section
+  id="principles"
+  class="relative isolate overflow-hidden border-b border-[var(--color-border-subtle)] bg-[var(--color-ink)] py-32 text-[var(--color-ink-on-dark)] sm:py-40"
+  aria-labelledby="principles-heading"
+>
+  {/* Soft amber wash, behind the type */}
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_15%_20%,_var(--color-amber-glow)_0%,_transparent_50%)]"
+  ></div>
+
+  <div class="mx-auto max-w-[1400px] px-6 sm:px-12">
+    <div class="mb-20 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-7">
+        <p class="ds-eyebrow mb-4" style="color: var(--color-amber)">PRINCIPLES</p>
+        <h2
+          id="principles-heading"
+          class="display-script text-5xl text-[var(--color-ink-on-dark)] sm:text-7xl"
+        >
+          How I work<span class="text-[var(--color-amber)]">.</span>
+        </h2>
+      </div>
+      <p class="text-base text-[var(--color-ink-on-dark-muted)] lg:col-span-5">
+        Four rules I keep returning to. They fail more often than they succeed,
+        which is why they are written down.
+      </p>
+    </div>
+
+    {/* Oversized pull-quote, the editorial centrepiece */}
+    <blockquote
+      class="display-script mb-20 max-w-5xl text-4xl leading-tight text-[var(--color-ink-on-dark)] sm:text-6xl lg:text-7xl"
+    >
+      <span class="text-[var(--color-amber)]">&ldquo;</span>The job is not
+      to be the smartest person in the room. The job is to ship a system
+      that survives <em class="text-[var(--color-amber)]">contact with reality</em>.
+      <span class="text-[var(--color-amber)]">&rdquo;</span>
+    </blockquote>
+
+    <ol class="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-xl)] bg-[var(--color-ink-on-dark-muted)]/15 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        principles.map((p) => (
+          <li class="group relative bg-[var(--color-ink)] p-8 transition-colors hover:bg-[var(--color-bg-dark-elevated)]">
+            <p class="display-mark text-5xl text-[var(--color-amber)]">{p.n}</p>
+            <h3 class="display-script mt-6 text-2xl text-[var(--color-ink-on-dark)] sm:text-3xl">
+              {p.title}
+            </h3>
+            <p class="mt-4 text-sm leading-relaxed text-[var(--color-ink-on-dark-muted)]">
+              {p.body}
+            </p>
+            <div
+              aria-hidden="true"
+              class="absolute bottom-0 left-0 h-0.5 w-0 bg-[var(--color-amber)] transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:w-full"
+            />
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,81 @@
+---
+const cards = [
+  {
+    label: 'Gaming',
+    title: 'ROG Showdown podiums',
+    body:
+      'Three consecutive 2v2 podium finishes in the ASUS Republic of Gamers Showdown series at The Sports Club: 2nd, 2nd, then 3rd. FPS games sharpen the same kind of pattern recognition I use in security work, only with shorter feedback loops.',
+    chips: ['ASUS ROG Showdown', '2v2', 'Podium ×3'],
+  },
+  {
+    label: 'Languages',
+    title: 'Three, working order',
+    body:
+      'English (fluent, day-to-day), Hindi (native), Punjabi (conversational). Writing technical material in English is its own skill. Speaking three is occasionally useful in a stand-up; rarely useful in a code review.',
+    chips: ['English', 'Hindi', 'Punjabi'],
+  },
+  {
+    label: 'Off the keyboard',
+    title: 'Lifting, walking, reading',
+    body:
+      'Strength training four days a week. Long walks around Adelaide for thinking. A non-trivial fraction of any blog post I publish was drafted somewhere between Henley Beach and home.',
+    chips: ['Adelaide', 'Strength', 'Walking'],
+  },
+];
+---
+
+<section
+  id="beyond"
+  class="border-b border-[var(--color-border-subtle)] bg-[var(--color-bg-subtle)] py-24 sm:py-32"
+  aria-labelledby="beyond-heading"
+>
+  <div class="mx-auto max-w-[1400px] px-6 sm:px-12">
+    <div class="mb-16 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-7">
+        <p class="ds-eyebrow mb-4">OFF THE CLOCK</p>
+        <h2
+          id="beyond-heading"
+          class="display-script text-5xl text-[var(--color-ink)] sm:text-7xl"
+        >
+          Beyond the work<span class="text-[var(--color-amber)]">.</span>
+        </h2>
+      </div>
+      <p class="text-base text-[var(--color-ink-muted)] lg:col-span-5">
+        The hiring page version of me misses everything that actually keeps
+        the work tolerable. Here is the rest of it.
+      </p>
+    </div>
+
+    <ul class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      {
+        cards.map((card, i) => (
+          <li class="group relative h-full overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-8 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:shadow-[var(--shadow-card)]">
+            <div class="mono flex items-baseline justify-between text-xs">
+              <span class="text-[var(--color-amber)]">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span class="ds-eyebrow">{card.label}</span>
+            </div>
+            <h3 class="display-script mt-6 text-2xl text-[var(--color-ink)] sm:text-3xl">
+              {card.title}
+            </h3>
+            <p class="mt-4 text-sm leading-relaxed text-[var(--color-ink-muted)]">
+              {card.body}
+            </p>
+            <ul class="mono mt-6 flex flex-wrap gap-2">
+              {card.chips.map((c) => (
+                <li class="rounded-full border border-[var(--color-border)] bg-[var(--color-bg)] px-3 py-1 text-xs text-[var(--color-ink-dim)] transition-colors group-hover:border-[var(--color-amber)]">
+                  {c}
+                </li>
+              ))}
+            </ul>
+            <div
+              aria-hidden="true"
+              class="absolute bottom-0 left-0 h-0.5 w-0 bg-[var(--color-amber)] transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:w-full"
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
