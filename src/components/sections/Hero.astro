@@ -1,14 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-
-// Source the portrait if it exists, otherwise fall back to a stylised blob
-const portraitPath = fileURLToPath(new URL('../../assets/portrait.png', import.meta.url));
-const hasPortrait = existsSync(portraitPath);
-const portrait = hasPortrait
-  ? (await import('../../assets/portrait.png' as string)).default
-  : null;
+import portrait from '../../assets/portrait.png';
 ---
 
 <section
@@ -51,20 +43,14 @@ const portrait = hasPortrait
       <figure
         class="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-subtle)] shadow-[var(--shadow-card)]"
       >
-        {hasPortrait && portrait ? (
-          <Image
-            src={portrait}
-            alt="Vikrant — portrait"
-            widths={[480, 720, 1080]}
-            sizes="(max-width: 1024px) 100vw, 480px"
-            class="h-full w-full object-cover"
-            loading="eager"
-          />
-        ) : (
-          <div class="flex h-full w-full items-center justify-center">
-            <div class="display-mark text-7xl text-[var(--color-ink-faint)]">V.</div>
-          </div>
-        )}
+        <Image
+          src={portrait}
+          alt="Vikrant — portrait"
+          widths={[480, 720, 1080]}
+          sizes="(max-width: 1024px) 100vw, 480px"
+          class="h-full w-full object-cover"
+          loading="eager"
+        />
       </figure>
 
       <p class="mt-8 max-w-sm text-base text-[var(--color-ink-muted)]">
