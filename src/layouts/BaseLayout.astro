@@ -1,5 +1,6 @@
 ---
 import '../styles/globals.css';
+import Header from '../components/Header.astro';
 
 interface Props {
   title: string;
@@ -9,14 +10,12 @@ interface Props {
 
 const {
   title,
-  description = 'Vikrant — Data Engineer & Cybersecurity Analyst. Adelaide, Australia.',
+  description = 'Vikrant Sharma. Data Engineer and Cybersecurity Analyst based in Adelaide, Australia.',
   noindex = false,
 } = Astro.props;
 
 const fullTitle =
-  title.toLowerCase() === 'home'
-    ? 'Vikrant — Data Engineer & Cybersecurity Analyst'
-    : `${title} — Vikrant`;
+  title.toLowerCase() === 'home' ? 'Vikrant Sharma' : `${title}, Vikrant`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
@@ -46,8 +45,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
     <meta name="theme-color" content="#0a0e1a" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body class="min-h-svh bg-[var(--color-bg)] text-[var(--color-ink)]">
+  <body id="top" class="min-h-svh bg-[var(--color-bg)] text-[var(--color-ink)]">
     <a href="#main" class="skip-link">Skip to content</a>
+    <Header />
     <main id="main">
       <slot />
     </main>
