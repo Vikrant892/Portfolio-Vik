@@ -137,22 +137,24 @@ const projects = [
                     </li>
                   ))}
                 </ul>
-                <div class="mono mt-6 flex gap-4 text-xs">
+                <div class="mono mt-6 flex flex-wrap gap-2 text-xs">
                   <a
                     href={p.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1 text-[var(--color-ink)] underline-offset-4 hover:text-[var(--color-amber)] hover:underline"
+                    class="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-ink)] px-4 py-2 font-medium text-[var(--color-ink-on-dark)] transition-transform hover:-translate-y-0.5"
                   >
-                    Live ↗
+                    Open live demo
+                    <span aria-hidden="true">↗</span>
                   </a>
                   <a
                     href={p.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1 text-[var(--color-ink-muted)] underline-offset-4 hover:text-[var(--color-ink)] hover:underline"
+                    class="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border-strong)] px-4 py-2 text-[var(--color-ink)] transition-colors hover:border-[var(--color-amber)] hover:text-[var(--color-amber)]"
                   >
-                    Source ↗
+                    Source on GitHub
+                    <span aria-hidden="true">↗</span>
                   </a>
                 </div>
               </div>
