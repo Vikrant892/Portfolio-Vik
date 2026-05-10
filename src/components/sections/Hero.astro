@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import portrait from '../../assets/portrait.jpg';
+import portrait from '../../assets/portrait.png';
 ---
 
 <section
@@ -14,7 +14,7 @@ import portrait from '../../assets/portrait.jpg';
   ></div>
 
   <div class="mx-auto grid max-w-[1400px] grid-cols-1 gap-8 px-6 sm:px-12 lg:grid-cols-12">
-    {/* LEFT — script header, name, tagline, pill */}
+    {/* LEFT: script header, name, tagline, pill */}
     <div class="lg:col-span-7 lg:pt-8">
       <p class="ds-eyebrow mb-6">VIKRANT, DATA ENGINEER &amp; CYBERSECURITY ANALYST</p>
 
@@ -43,22 +43,22 @@ import portrait from '../../assets/portrait.jpg';
       </div>
     </div>
 
-    {/* RIGHT — portrait, integrated into the page (no frame) */}
+    {/* RIGHT: portrait, integrated into the page (no frame) */}
     <div class="relative lg:col-span-5 lg:pt-12">
       <figure class="relative mx-auto aspect-[4/5] w-full max-w-md">
         <Image
           src={portrait}
-          alt="Vikrant — portrait"
+          alt="Vikrant portrait"
           widths={[480, 720, 1080]}
           sizes="(max-width: 1024px) 100vw, 480px"
-          class="hero-portrait h-full w-full object-cover"
+          class="hero-portrait h-full w-full"
           loading="eager"
         />
       </figure>
 
       <p class="mt-8 max-w-sm text-base text-[var(--color-ink-muted)]">
         Master of IT student at USC Adelaide. I build production data systems,
-        ML pipelines, and threat-detection platforms — currently looking for
+        ML pipelines, and threat-detection platforms. Currently looking for
         Data Engineer and Cybersecurity Analyst roles in Australia.
       </p>
 
@@ -112,22 +112,10 @@ import portrait from '../../assets/portrait.jpg';
 </section>
 
 <style>
-  /* Hero portrait: integrate cleanly into the cream page.
-     The studio grey behind the subject gets neutralised by mix-blend-mode
-     multiply against the cream backdrop, while the radial mask handles the
-     remaining edges. Subject details (hair, shirt, face) stay readable. */
+  /* Hero portrait: PNG with transparent background, sits cleanly on the
+     cream page with no frame or backdrop. */
   .hero-portrait {
-    mix-blend-mode: multiply;
-    -webkit-mask-image: radial-gradient(
-      ellipse 75% 88% at 50% 42%,
-      #000 45%,
-      transparent 100%
-    );
-    mask-image: radial-gradient(
-      ellipse 75% 88% at 50% 42%,
-      #000 45%,
-      transparent 100%
-    );
+    object-fit: contain;
   }
 
   @keyframes scroll {

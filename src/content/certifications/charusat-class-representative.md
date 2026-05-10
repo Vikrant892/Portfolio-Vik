@@ -1,5 +1,5 @@
 ---
-title: 'Class Representative — Recognition'
+title: 'Class Representative Recognition'
 issuer: 'CHARUSAT University of Science and Technology'
 issuedAt: 2023-04-30
 certImage: '../../assets/certs/tot-03.png'

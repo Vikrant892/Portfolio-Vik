@@ -30,15 +30,15 @@ const monthYear = (d: Date) =>
         </h2>
       </div>
       <p class="text-base text-[var(--color-ink-muted)] lg:col-span-5">
-        {certs.length} verified certifications, conferences, and recognitions —
-        click any card to view the certificate or verify online.
+        {certs.length} verified certifications, conferences, and recognitions.
+        Click any card to view the certificate or verify online.
       </p>
     </div>
 
     {
       certs.length === 0 ? (
         <p class="mono text-sm text-[var(--color-ink-muted)]">
-          Certifications loading — content collection empty.
+          Certifications loading. Content collection empty.
         </p>
       ) : (
         <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

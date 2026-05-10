@@ -1,5 +1,5 @@
 ---
-title: 'ASUS ROG Showdown — The Sports Club'
+title: 'ASUS ROG Showdown, The Sports Club'
 organisation: 'ASUS Republic of Gamers × The Sports Club'
 year: 2024
 tier: 'Podium'

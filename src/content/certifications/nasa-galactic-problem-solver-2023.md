@@ -8,4 +8,4 @@ featured: true
 order: 2
 ---
 
-Awarded by Dr. Keith Gaddis (Programme Scientist, NASA International Space Apps Challenge) for outstanding participation and efforts to solve challenges on Earth and in space — the precursor recognition to the Global Finalist outcome.
+Awarded by Dr. Keith Gaddis (Programme Scientist, NASA International Space Apps Challenge) for outstanding participation and efforts to solve challenges on Earth and in space, the precursor recognition to the Global Finalist outcome.

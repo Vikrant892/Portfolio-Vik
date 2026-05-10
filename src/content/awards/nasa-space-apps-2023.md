@@ -1,5 +1,5 @@
 ---
-title: 'NASA Space Apps Challenge — Global Finalist'
+title: 'NASA Space Apps Challenge, Global Finalist'
 organisation: 'NASA'
 year: 2023
 tier: 'Finalist'
@@ -8,4 +8,4 @@ imageUrl: 'https://media.licdn.com/dms/image/v2/D4D22AQEORHfUWGCjjQ/feedshare-sh
 featured: true
 ---
 
-Global Finalist in the NASA Space Apps Challenge 2023 with **Team Eklavya**. The team built **AstroSonify** — a system that converts planetary data (latitude, longitude, velocity, temperature) into piano tones, with image-scan-to-music capabilities.
+Global Finalist in the NASA Space Apps Challenge 2023 with **Team Eklavya**. The team built **AstroSonify**, a system that converts planetary data (latitude, longitude, velocity, temperature) into piano tones, with image-scan-to-music capabilities.
