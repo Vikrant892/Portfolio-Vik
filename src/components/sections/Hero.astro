@@ -38,17 +38,15 @@ import portrait from '../../assets/portrait.jpg';
       </div>
     </div>
 
-    {/* RIGHT — portrait + role detail */}
-    <div class="lg:col-span-5 lg:pt-12">
-      <figure
-        class="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-subtle)] shadow-[var(--shadow-card)]"
-      >
+    {/* RIGHT — portrait, integrated into the page (no frame) */}
+    <div class="relative lg:col-span-5 lg:pt-12">
+      <figure class="relative mx-auto aspect-[4/5] w-full max-w-md">
         <Image
           src={portrait}
           alt="Vikrant — portrait"
           widths={[480, 720, 1080]}
           sizes="(max-width: 1024px) 100vw, 480px"
-          class="h-full w-full object-cover"
+          class="hero-portrait h-full w-full object-cover"
           loading="eager"
         />
       </figure>
@@ -109,6 +107,24 @@ import portrait from '../../assets/portrait.jpg';
 </section>
 
 <style>
+  /* Hero portrait: black-and-white, with a soft mask at the bottom and right
+     so the figure bleeds into the cream background instead of sitting in a card.
+     Reference: editorial portrait sites where the photo is part of the page,
+     not a thumbnail on top of one. */
+  .hero-portrait {
+    filter: grayscale(100%) contrast(1.05);
+    -webkit-mask-image: radial-gradient(
+      ellipse 95% 95% at 45% 35%,
+      #000 60%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 95% 95% at 45% 35%,
+      #000 60%,
+      transparent 100%
+    );
+  }
+
   @keyframes scroll {
     from {
       transform: translateX(0);
