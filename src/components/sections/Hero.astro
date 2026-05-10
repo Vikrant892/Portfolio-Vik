@@ -107,19 +107,16 @@ import portrait from '../../assets/portrait.jpg';
 </section>
 
 <style>
-  /* Hero portrait: black-and-white, with a soft mask at the bottom and right
-     so the figure bleeds into the cream background instead of sitting in a card.
-     Reference: editorial portrait sites where the photo is part of the page,
-     not a thumbnail on top of one. */
+  /* Hero portrait: full colour, no frame, soft radial mask so the figure
+     bleeds into the cream background instead of sitting in a card. */
   .hero-portrait {
-    filter: grayscale(100%) contrast(1.05);
     -webkit-mask-image: radial-gradient(
-      ellipse 95% 95% at 45% 35%,
+      ellipse 95% 95% at 50% 35%,
       #000 60%,
       transparent 100%
     );
     mask-image: radial-gradient(
-      ellipse 95% 95% at 45% 35%,
+      ellipse 95% 95% at 50% 35%,
       #000 60%,
       transparent 100%
     );
