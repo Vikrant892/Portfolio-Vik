@@ -44,19 +44,29 @@ import portrait from '../../assets/portrait.png';
     </div>
 
     {/* RIGHT: portrait, integrated into the page (no frame) */}
-    <div class="relative lg:col-span-5 lg:pt-12">
-      <figure class="relative mx-auto aspect-[4/5] w-full max-w-md">
+    <div class="relative lg:col-span-5 lg:-mt-4">
+      {/* Section index marker, top-right of column */}
+      <div class="mono pointer-events-none absolute right-0 top-0 hidden text-xs uppercase tracking-widest text-[var(--color-ink-faint)] lg:block">
+        <span>01 / Intro</span>
+      </div>
+
+      <figure class="relative mx-auto aspect-square w-full max-w-[34rem] lg:-translate-x-4 xl:-translate-x-8">
         <Image
           src={portrait}
           alt="Vikrant portrait"
-          widths={[480, 720, 1080]}
-          sizes="(max-width: 1024px) 100vw, 480px"
+          widths={[480, 720, 1080, 1280]}
+          sizes="(max-width: 1024px) 100vw, 540px"
           class="hero-portrait h-full w-full"
           loading="eager"
         />
+        {/* Thin baseline anchoring the portrait to the page */}
+        <span
+          aria-hidden="true"
+          class="absolute -bottom-2 left-1/2 h-px w-2/3 -translate-x-1/2 bg-[var(--color-border)]"
+        ></span>
       </figure>
 
-      <p class="mt-8 max-w-sm text-base text-[var(--color-ink-muted)]">
+      <p class="mt-10 max-w-sm text-base leading-relaxed text-[var(--color-ink-muted)]">
         Master of IT student at USC Adelaide. I build production data systems,
         ML pipelines, and threat-detection platforms. Currently looking for
         Data Engineer and Cybersecurity Analyst roles in Australia.
@@ -81,6 +91,15 @@ import portrait from '../../assets/portrait.png';
           </dd>
         </div>
       </dl>
+
+      {/* Currently building line, anchors the right column */}
+      <div class="mono mt-6 flex items-center gap-3 border-t border-[var(--color-border-subtle)] pt-6 text-xs uppercase tracking-widest text-[var(--color-ink-dim)]">
+        <span class="relative flex h-2 w-2">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-amber)] opacity-60"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-amber)]"></span>
+        </span>
+        <span>Currently building Hybrid ML IDS, capstone 2026</span>
+      </div>
     </div>
   </div>
 

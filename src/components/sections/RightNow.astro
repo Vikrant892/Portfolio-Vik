@@ -1,0 +1,79 @@
+---
+const items = [
+  {
+    label: 'Building',
+    title: 'Hybrid ML IDS, capstone',
+    body:
+      'Isolation Forest plus Random Forest plus Autoencoder ensemble on CICIDS2017. Hitting F1 0.95 on the validation slice. Currently writing the post-mortem on what went wrong on the first three attempts.',
+    tag: 'NIDS / HIDS',
+  },
+  {
+    label: 'Learning',
+    title: 'Snowflake performance tuning',
+    body:
+      'Beyond the OCI Data Science cert, working through query profiling, micro-partition pruning, and warehouse sizing on production-shaped datasets. Notes go on the blog when they survive a second pass.',
+    tag: 'Data Eng',
+  },
+  {
+    label: 'Reading',
+    title: 'Designing Data-Intensive Applications',
+    body:
+      'Kleppmann, third pass. Each pass surfaces something new now that I have shipped systems instead of just notebooks. The chapter on stream processing is the one that keeps paying interest.',
+    tag: 'Foundations',
+  },
+];
+---
+
+<section
+  id="now"
+  class="border-b border-[var(--color-border-subtle)] bg-[var(--color-bg)] py-24 sm:py-32"
+  aria-labelledby="now-heading"
+>
+  <div class="mx-auto max-w-[1400px] px-6 sm:px-12">
+    <div class="mb-16 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-7">
+        <p class="ds-eyebrow mb-4 flex items-center gap-3">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-amber)] opacity-60"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-amber)]"></span>
+          </span>
+          RIGHT NOW
+        </p>
+        <h2
+          id="now-heading"
+          class="display-script text-5xl text-[var(--color-ink)] sm:text-7xl"
+        >
+          Currently<span class="text-[var(--color-amber)]">.</span>
+        </h2>
+      </div>
+      <p class="text-base text-[var(--color-ink-muted)] lg:col-span-5">
+        A live snapshot of what is actually on my desk this week. Updated when
+        the work shifts, not on a schedule.
+      </p>
+    </div>
+
+    <ol class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      {
+        items.map((item, i) => (
+          <li class="relative h-full overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-8 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:shadow-[var(--shadow-card)]">
+            <div class="mono flex items-baseline justify-between text-xs">
+              <span class="text-[var(--color-amber)]">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span class="ds-eyebrow">{item.label}</span>
+            </div>
+            <h3 class="display-script mt-6 text-2xl text-[var(--color-ink)] sm:text-3xl">
+              {item.title}
+            </h3>
+            <p class="mt-4 text-sm leading-relaxed text-[var(--color-ink-muted)]">
+              {item.body}
+            </p>
+            <p class="mono mt-6 inline-block rounded-full border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-ink-dim)]">
+              #{item.tag}
+            </p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
