@@ -1,6 +1,7 @@
 ---
 import '../styles/globals.css';
 import Header from '../components/Header.astro';
+import AssetProtection from '../components/AssetProtection.astro';
 
 interface Props {
   title: string;
@@ -51,5 +52,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
     <main id="main">
       <slot />
     </main>
+    <AssetProtection />
   </body>
 </html>
