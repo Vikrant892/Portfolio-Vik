@@ -122,19 +122,20 @@ const formatDate = (s: string) => {
           </a>
         ) : (
           <a
-            href="https://vikrant69g.com/blog/rss.xml"
-            class="group relative flex h-full flex-col justify-between rounded-[var(--radius-xl)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-bg-elevated)] p-8 transition-colors hover:border-[var(--color-amber)]"
+            href="https://vikrant69g.com/blog"
+            class="group relative flex h-full flex-col justify-between rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-8 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:shadow-[var(--shadow-card)]"
           >
             <div>
-              <p class="mono text-xs text-[var(--color-amber)]">SUBSCRIBE</p>
+              <p class="mono text-xs text-[var(--color-amber)]">MORE POSTS</p>
               <h3 class="display-script mt-4 text-2xl text-[var(--color-ink)] group-hover:text-[var(--color-amber)]">
-                RSS feed
+                Read everything
               </h3>
               <p class="mt-3 text-sm leading-relaxed text-[var(--color-ink-muted)]">
-                One post every two to three weeks. Post-mortems on the work, not tutorials. Pipe it into your reader.
+                A new post lands every day. The full collection sits on the
+                blog, sorted by date and topic.
               </p>
             </div>
-            <p class="mono mt-6 text-xs text-[var(--color-ink-dim)]">Open feed →</p>
+            <p class="mono mt-6 text-xs text-[var(--color-ink-dim)]">Go to the blog →</p>
           </a>
         )}
 
@@ -158,12 +159,14 @@ const formatDate = (s: string) => {
         ) : (
           <div class="relative flex h-full flex-col justify-between rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-subtle)] p-8">
             <div>
-              <p class="mono text-xs text-[var(--color-amber)]">CADENCE</p>
+              <p class="mono text-xs text-[var(--color-amber)]">WHAT I WRITE ABOUT</p>
               <h3 class="display-script mt-4 text-2xl text-[var(--color-ink)]">
-                Next one in roughly two weeks
+                Real stories, real numbers
               </h3>
               <p class="mt-3 text-sm leading-relaxed text-[var(--color-ink-muted)]">
-                The auto-post pipeline ships a new piece every fortnight. Topics queued: Snowflake warehouse sizing, Isolation Forest pitfalls, the OWASP 2021 list three years on.
+                Mostly stories of what I have actually built: machine learning
+                systems, data pipelines, security tools. The honest version,
+                not the LinkedIn highlight reel.
               </p>
             </div>
             <p class="mono mt-6 flex items-center gap-2 text-xs text-[var(--color-ink-dim)]">
@@ -171,7 +174,7 @@ const formatDate = (s: string) => {
                 <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-amber)] opacity-60"></span>
                 <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--color-amber)]"></span>
               </span>
-              QUEUE LIVE
+              NEW POST EVERY DAY
             </p>
           </div>
         )}
