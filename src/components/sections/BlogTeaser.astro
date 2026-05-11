@@ -76,25 +76,106 @@ const formatDate = (s: string) => {
         Posts loading. Check back when the blog feed is reachable.
       </p>
     ) : (
-      <ul class="grid grid-cols-1 gap-px overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-border)] sm:grid-cols-3">
-        {posts.map((p) => (
-          <li>
-            <a
-              href={p.link}
-              class="group block h-full bg-[var(--color-bg-elevated)] p-8 transition-colors hover:bg-[var(--color-bg)]"
-            >
-              <p class="mono text-xs text-[var(--color-amber)]">{formatDate(p.pubDate)}</p>
-              <h3 class="display-script mt-3 text-2xl text-[var(--color-ink)] group-hover:text-[var(--color-amber)]">
-                {p.title}
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        {/* Featured most-recent post takes a full-height card on the left */}
+        <a
+          href={posts[0].link}
+          class="group relative flex h-full flex-col justify-between overflow-hidden rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-ink)] p-10 text-[var(--color-ink-on-dark)] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:shadow-[var(--shadow-card)] lg:col-span-2 lg:row-span-2"
+        >
+          <div
+            aria-hidden="true"
+            class="pointer-events-none absolute inset-0 -z-0 bg-[radial-gradient(ellipse_at_85%_15%,_var(--color-amber-glow)_0%,_transparent_60%)] opacity-90"
+          ></div>
+          <div class="relative z-10">
+            <p class="mono text-xs uppercase tracking-widest" style="color: var(--color-amber)">
+              {formatDate(posts[0].pubDate)} / LATEST
+            </p>
+            <h3 class="display-script mt-6 text-4xl leading-tight text-[var(--color-ink-on-dark)] sm:text-6xl">
+              {posts[0].title}
+            </h3>
+            <p class="mt-6 max-w-2xl text-base leading-relaxed text-[var(--color-ink-on-dark-muted)]">
+              {posts[0].description}
+            </p>
+          </div>
+          <p class="mono relative z-10 mt-10 inline-flex items-center gap-2 text-sm">
+            <span class="text-[var(--color-amber)]">Read the post</span>
+            <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
+          </p>
+        </a>
+
+        {/* Second post (if it exists), supporting card otherwise */}
+        {posts[1] ? (
+          <a
+            href={posts[1].link}
+            class="group relative flex h-full flex-col justify-between rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-8 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:shadow-[var(--shadow-card)]"
+          >
+            <div>
+              <p class="mono text-xs text-[var(--color-amber)]">{formatDate(posts[1].pubDate)}</p>
+              <h3 class="display-script mt-4 text-2xl text-[var(--color-ink)] group-hover:text-[var(--color-amber)]">
+                {posts[1].title}
               </h3>
               <p class="mt-3 text-sm leading-relaxed text-[var(--color-ink-muted)]">
-                {p.description}
+                {posts[1].description}
               </p>
-              <p class="mono mt-6 text-xs text-[var(--color-ink-dim)]">Read post →</p>
-            </a>
-          </li>
-        ))}
-      </ul>
+            </div>
+            <p class="mono mt-6 text-xs text-[var(--color-ink-dim)]">Read post →</p>
+          </a>
+        ) : (
+          <a
+            href="https://vikrant69g.com/blog/rss.xml"
+            class="group relative flex h-full flex-col justify-between rounded-[var(--radius-xl)] border border-dashed border-[var(--color-border-strong)] bg-[var(--color-bg-elevated)] p-8 transition-colors hover:border-[var(--color-amber)]"
+          >
+            <div>
+              <p class="mono text-xs text-[var(--color-amber)]">SUBSCRIBE</p>
+              <h3 class="display-script mt-4 text-2xl text-[var(--color-ink)] group-hover:text-[var(--color-amber)]">
+                RSS feed
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-[var(--color-ink-muted)]">
+                One post every two to three weeks. Post-mortems on the work, not tutorials. Pipe it into your reader.
+              </p>
+            </div>
+            <p class="mono mt-6 text-xs text-[var(--color-ink-dim)]">Open feed →</p>
+          </a>
+        )}
+
+        {/* Third post (if it exists), about card otherwise */}
+        {posts[2] ? (
+          <a
+            href={posts[2].link}
+            class="group relative flex h-full flex-col justify-between rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-elevated)] p-8 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:shadow-[var(--shadow-card)]"
+          >
+            <div>
+              <p class="mono text-xs text-[var(--color-amber)]">{formatDate(posts[2].pubDate)}</p>
+              <h3 class="display-script mt-4 text-2xl text-[var(--color-ink)] group-hover:text-[var(--color-amber)]">
+                {posts[2].title}
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-[var(--color-ink-muted)]">
+                {posts[2].description}
+              </p>
+            </div>
+            <p class="mono mt-6 text-xs text-[var(--color-ink-dim)]">Read post →</p>
+          </a>
+        ) : (
+          <div class="relative flex h-full flex-col justify-between rounded-[var(--radius-xl)] border border-[var(--color-border)] bg-[var(--color-bg-subtle)] p-8">
+            <div>
+              <p class="mono text-xs text-[var(--color-amber)]">CADENCE</p>
+              <h3 class="display-script mt-4 text-2xl text-[var(--color-ink)]">
+                Next one in roughly two weeks
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-[var(--color-ink-muted)]">
+                The auto-post pipeline ships a new piece every fortnight. Topics queued: Snowflake warehouse sizing, Isolation Forest pitfalls, the OWASP 2021 list three years on.
+              </p>
+            </div>
+            <p class="mono mt-6 flex items-center gap-2 text-xs text-[var(--color-ink-dim)]">
+              <span class="relative flex h-1.5 w-1.5">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-amber)] opacity-60"></span>
+                <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--color-amber)]"></span>
+              </span>
+              QUEUE LIVE
+            </p>
+          </div>
+        )}
+      </div>
     )}
   </div>
 </section>
