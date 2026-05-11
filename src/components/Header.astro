@@ -1,9 +1,16 @@
 ---
-const links = [
+interface NavLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+const links: ReadonlyArray<NavLink> = [
   { label: 'Stack', href: '#stack' },
   { label: 'Work', href: '#projects' },
   { label: 'Experience', href: '#experience' },
   { label: 'Awards', href: '#awards' },
+  { label: 'Blog', href: 'https://vikrant69g.com/blog', external: true },
   { label: 'Contact', href: '#contact' },
 ];
 ---
@@ -27,6 +34,8 @@ const links = [
         links.map((l) => (
           <a
             href={l.href}
+            target={l.external ? '_blank' : undefined}
+            rel={l.external ? 'noopener' : undefined}
             class="mono text-xs uppercase tracking-widest text-[var(--color-ink-muted)] transition-colors hover:text-[var(--color-ink)]"
           >
             {l.label}
