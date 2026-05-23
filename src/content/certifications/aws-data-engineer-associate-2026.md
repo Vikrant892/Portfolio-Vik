@@ -5,6 +5,7 @@ issuedAt: 2026-05-23
 expiresAt: 2029-05-23
 credentialId: '22917eb7-1f4e-47b2-b878-004005d7a9b2'
 verifyUrl: 'https://www.credly.com/badges/22917eb7-1f4e-47b2-b878-004005d7a9b2/public_url'
+certImage: '../../assets/certs/aws-data-engineer-associate.png'
 tags: ['aws', 'data-engineering', 'cloud', 'etl']
 featured: true
 order: 1
